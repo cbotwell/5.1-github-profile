@@ -1,0 +1,18 @@
+{
+  "name": "5.1-github-profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "broccoli": "^0.16.4",
+    "broccoli-funnel": "^0.2.3",
+    "broccoli-inject-livereload": "^0.2.0",
+    "broccoli-merge-trees": "^0.2.1",
+    "broccoli-sass": "^0.6.6"
+  }
+}
