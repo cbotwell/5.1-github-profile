@@ -16,8 +16,179 @@ html {
 
 // variables
 
+$grey-color: #F2F2F2;
+$font-defaults: Helvetica, Arial, sans-serif;
+$alt-color: #4078c0;
+$alt-button-color: #60b044;
+$main-border: 1px solid darken($grey-color, 8%);
 
 // starting styles
+body {
+    font-family: $font-defaults;
+}
 .wrapper {
     @include outer-container(980px);
 }
+
+.sidebar {
+    @include span-columns(3);
+}
+
+.content {
+    @include span-columns(9);
+    @include omega();
+}
+footer {
+    @include span-columns(12);
+}
+
+// styling nav
+
+nav {
+    @include span-columns(12);
+    background: $grey-color;
+    padding: 10px 0;
+    border-bottom: $main-border;
+    font-size: 1em;
+    overflow: auto;
+
+    .main {
+        float: left;
+        .fa-github, input, ul, li, a {
+            float: left;
+        }
+        a {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .fa-github, input {
+            margin-right: 15px;
+        }
+        .fa-github {
+            font-size: 2em;
+        }
+        input {
+            border: $main-border;
+            border-radius: 3px;
+            padding: 8px;
+            width: 300px;
+        }
+   }
+   .account {
+        float: right;
+        li {
+            float: left;
+        }
+        img {
+            height: 20px;
+            border-radius: 3px;
+        }
+        img:after, .fa-plus:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 4px 0 4px;
+            border-color: black transparent transparent transparent;
+        }
+   }
+   a {
+    text-decoration: none;
+    color: black;
+   }
+   a:hover {
+    color: $alt-color;
+   }
+   li {
+    margin: 0 15px;
+   }
+}
+
+// styling footer
+
+footer {
+    color: darken($grey-color, 10%);
+    font-size: 2em;
+    text-align: center;
+    overflow: auto;
+
+    .wrapper {
+        border-top: $main-border;
+        padding-top: 30px;
+    }
+    ul:first-of-type, li {
+        float: left;
+    }
+    ul:last-of-type {
+        float: right;
+    }
+    a {
+        text-decoration: none;
+        color: $alt-color;
+    }
+    li {
+        font-size: 0.4em;
+        margin: 0 5px;
+    }
+}
+
+// styling main-body
+
+.sidebar, .content {
+    margin: 20px 0;
+}
+
+// styling content
+
+.top, .row-one, .row-two, .repos {
+    @include span-columns(12);
+}
+.row-one, .row-two {
+    border-bottom: 1px solid darken($grey-color, 8%);
+    font-size: 0.9em;
+    padding: 10px 0;
+    ul, li {
+        float: left
+    }
+    li {
+        margin: 0 5px;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+button {
+    background: $grey-color;
+    padding: 5px;
+    border: $main-border;
+    border-radius: 3px;
+}
+.row-one {
+    button {
+        float: right;
+    }
+}
+.row-two {
+    input, button {
+        float: left;
+        margin-right: 5px;
+        padding: 10px;
+    }
+    input {
+        border-radius: 3px;
+        border: $main-border;
+    }
+    .new-repo {
+        float: right;
+    }
+    a {
+        color: $alt-color;
+    }
+    .new-repo {
+        background: $alt-button-color;
+        color: white;
+        border-color: darken($alt-button-color, 8%)
+    }
+}
+
+// styling sidebar

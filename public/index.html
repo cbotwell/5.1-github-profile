@@ -13,14 +13,24 @@
         <div class="main">
             <i class="fa fa-github"></i>
             <input type="text" placeholder="Search GitHub">
-            <a href="#">Pull Requests</a>
-            <a href="#">Issues</a>
-            <a href="#">Gist</a>
+            <ul>
+                <li><a href="#">Pull Requests</a></li>
+                <li><a href="#">Issues</a></li>
+                <li><a href="#">Gist</a></li>
+            </ul>
         </div>
         <div class="account">
-            <i class="fa fa-inbox"></i>
-            <i class="fa fa-plus"></i>
-            <img src="https://avatars1.githubusercontent.com/u/13081612?v=3&amp;s=40">" alt="@username">
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-inbox"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-plus"></i></a>
+                </li>
+                <li>
+                    <a href="#"><img src="https://avatars1.githubusercontent.com/u/13081612?v=3&amp;s=40" alt="@username"></a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -30,13 +40,21 @@
     <div class="content">
         <div class="top">
             <div class="row-one">
-                <a href="#"><i class="fa fa-plus-square-o"></i> Contributions</a>
-                <a href="#"><i class="fa fa-book"> Repositories</i></a>
-                <a href="#"><i class="fa fa-rss"></i> Public activity</a>
+                <ul>
+                    <li>
+                        <a href="#"><i class="fa fa-plus-square-o"></i> Contributions</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-book"> Repositories</i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-rss"></i> Public activity</a>
+                    </li>
+                </ul>
                 <button><i class="fa fa-pencil"></i> Edit profile</button>
             </div>
             <div class="row-two">
-                <input type="text" placeholder="Finda a repository…">
+                <input type="text" placeholder="Find a repository…">
                 <button>Search</button>
                 <ul>
                     <li>All</li>
@@ -46,7 +64,7 @@
                     <li><a href="#">Forks</a></li>
                     <li><a href="#">Mirrors</a></li>
                 </ul>
-                <button><i class="fa fa-book"></i> New</button>
+                <button class="new-repo"><i class="fa fa-book"></i> New</button>
             </div>
         </div>
         <div class="repos"></div>
@@ -99,7 +117,7 @@
 
 <template id="repo">
     <div class="repo">
-        <h3>{{ RepoName }}</h3>
+        <a href="{{ repoUrl }}"><h3>{{ RepoName }}</h3></a>
         <p>{{ UpdatedTime }}</p>
         <div class="stats">
             <p>{{ CodeType }}</p>
