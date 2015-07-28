@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
+    <title>5.1 Github Profile</title>
+</head>
+<body>
+<nav>
+    <div class="wrapper">
+        <div class="main">
+            <i class="fa fa-github"></i>
+            <input type="text" placeholder="Search GitHub">
+        </div>
+        <ul class="links">
+            <li><a href="#">Pull Requests</a></li>
+            <li><a href="#">Issues</a></li>
+            <li><a href="#">Gist</a></li>
+        </ul>
+        <div class="account">
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-inbox"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-plus"></i></a>
+                </li>
+                <li>
+                    <a href="#"><img src="https://avatars1.githubusercontent.com/u/13081612?v=3&amp;s=40" alt="@username"> </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="wrapper">
+    <div class="sidebar"></div>
+    <div class="content">
+        <div class="top">
+            <div class="row-one">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fa fa-plus-square-o"></i> Contributions</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-book"> Repositories</i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-rss"></i> Public activity</a>
+                    </li>
+                </ul>
+                <button><i class="fa fa-pencil"></i> Edit profile</button>
+            </div>
+            <div class="row-two">
+                <input type="text" placeholder="Find a repository…">
+                <button>Search</button>
+                <ul>
+                    <li>All</li>
+                    <li><a href="#">Public</a></li>
+                    <li><a href="#">Private</a></li>
+                    <li><a href="#">Sources</a></li>
+                    <li><a href="#">Forks</a></li>
+                    <li><a href="#">Mirrors</a></li>
+                </ul>
+                <button class="new-repo"><i class="fa fa-book"></i> New</button>
+            </div>
+        </div>
+        <div class="repos"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="wrapper">
+        <ul>
+            <li>© 2015 GitHub, Inc.</li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <i class="fa fa-github"></i>
+        <ul>
+            <li><a href="#">Status</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Training</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </div>
+</footer>
+
+<template id="sidebar">
+    <div>
+        <img src="{{ avatar_url }}" alt="@{{ login }}">
+        <h2>{{ name }}</h2>
+        <h3>{{ login }}</h3>
+    </div>
+    <div>
+        <ul>
+            <li><i class="fa fa-map-marker"></i><span> {{ location }}</span></li>
+            <li><i class="fa fa-link"></i><a href="#"> {{ blog }}</a></li>
+            <li><i class="fa fa-clock-o"></i><span> Joined on {{ created_at }}</span></li>
+        </ul>
+    </div>
+    <div class="stats">
+            <a href="{{ followers_url }}"><span>{{ followers }}</span><span>Followers</span></a>
+            <a href="{{ starred_url }}"><span>0</span><span>Starred</span></a>
+            <a href="{{ following_url }}"><span>{{ following }}</span><span>Following</span></a>
+    </div>
+    <div class="orgs">
+        <p>Organizations</p>
+        <a href="https://github.com/TIY-LR-FEE-2015-June"><img src="https://avatars0.githubusercontent.com/u/12973026?v=3&amp;s=84" alt="@TIY-LR-FEE-2015-June"></a>
+    </div>
+</template>
+
+<template id="repo">
+    {{#each this as |repo|}}
+    <div class="repo">
+        <a href="{{ repo.html_url }}"><h3>{{ repo.name }}</h3></a>
+        <p>Updated {{ repo.updated_at }}</p>
+        <div class="stats">
+            <ul>
+                <li>{{ repo.language }}</li>
+                <li><i class="fa fa-star"></i>{{ repo.stargazers_count }}</li>
+                <li><i class="fa fa-code-fork"></i> {{ repo.forks_count }}</li>
+            </ul>
+        </div>
+    </div>
+    {{/each}}
+</template>
+
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="handlebars/handlebars.js"></script>
+<script src="app.js"></script>
+<!-- livereload snippet -->
+<script>document.write('<script src="http://'
+ + (location.host || 'localhost').split(':')[0]
+ + ':35729/livereload.js?snipver=1"><\/script>')
+</script>
+</body>
+</html>
