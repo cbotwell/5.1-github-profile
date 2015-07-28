@@ -13,12 +13,12 @@
         <div class="main">
             <i class="fa fa-github"></i>
             <input type="text" placeholder="Search GitHub">
-            <ul>
-                <li><a href="#">Pull Requests</a></li>
-                <li><a href="#">Issues</a></li>
-                <li><a href="#">Gist</a></li>
-            </ul>
         </div>
+        <ul class="links">
+            <li><a href="#">Pull Requests</a></li>
+            <li><a href="#">Issues</a></li>
+            <li><a href="#">Gist</a></li>
+        </ul>
         <div class="account">
             <ul>
                 <li>
@@ -28,7 +28,7 @@
                     <a href="#"><i class="fa fa-plus"></i></a>
                 </li>
                 <li>
-                    <a href="#"><img src="https://avatars1.githubusercontent.com/u/13081612?v=3&amp;s=40" alt="@username"></a>
+                    <a href="#"><img src="https://avatars1.githubusercontent.com/u/13081612?v=3&amp;s=40" alt="@username"> </a>
                 </li>
             </ul>
         </div>
@@ -120,12 +120,14 @@
 <template id="repo">
     {{#each this as |repo|}}
     <div class="repo">
-        <a href="{{ repoUrl }}"><h3>{{ RepoName }}</h3></a>
-        <p>{{ UpdatedTime }}</p>
+        <a href="{{ repo.html_url }}"><h3>{{ repo.name }}</h3></a>
+        <p>Updated {{ repo.updated_at }}</p>
         <div class="stats">
-            <p>{{ CodeType }}</p>
-            <p><i class="fa fa-star"></i>{{ Stars }}</p>
-            <p><i class="fa fa-code-fork"></i> {{ Forks }}</p>
+            <ul>
+                <li>{{ repo.language }}</li>
+                <li><i class="fa fa-star"></i>{{ repo.stargazers_count }}</li>
+                <li><i class="fa fa-code-fork"></i> {{ repo.forks_count }}</li>
+            </ul>
         </div>
     </div>
     {{/each}}

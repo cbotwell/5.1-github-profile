@@ -51,10 +51,13 @@ nav {
     border-bottom: $main-border;
     font-size: 1em;
     overflow: auto;
-
+    .wrapper {
+        position: relative;
+    }
     .main {
         float: left;
-        .fa-github, input, ul, li, a {
+
+        .fa-github, input, li, a {
             float: left;
         }
         a {
@@ -74,8 +77,22 @@ nav {
             width: 300px;
         }
    }
+   .links {
+       position: absolute;
+       top: 50%;
+       left: 35%;
+       transform: translateY(-50%);
+       li {
+        float: left;
+        font-weight: bold;
+        font-size: 0.8em;
+       }
+   }
    .account {
-        float: right;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
         li {
             float: left;
         }
@@ -83,13 +100,27 @@ nav {
             height: 20px;
             border-radius: 3px;
         }
-        img:after, .fa-plus:after {
+        .fa-plus:after {
             content: '';
             width: 0;
             height: 0;
             border-style: solid;
             border-width: 4px 4px 0 4px;
             border-color: black transparent transparent transparent;
+            position: absolute;
+            top: 50%;
+            right: -10px;
+        }
+        a:last-of-type:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 4px 0 4px;
+            border-color: black transparent transparent transparent;
+            position: absolute;
+            top: 40%;
+            right: 5px;
         }
    }
    a {
@@ -112,15 +143,26 @@ footer {
     text-align: center;
     overflow: auto;
 
+
     .wrapper {
         border-top: $main-border;
-        padding-top: 30px;
+        padding: 30px 0;
+        position: relative;
     }
-    ul:first-of-type, li {
-        float: left;
+    ul:first-of-type {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
     }
     ul:last-of-type {
-        float: right;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+    li {
+        float: left;
     }
     a {
         text-decoration: none;
@@ -156,6 +198,7 @@ footer {
     }
     a {
         text-decoration: none;
+        color: black;
     }
 }
 button {
@@ -163,6 +206,7 @@ button {
     padding: 5px;
     border: $main-border;
     border-radius: 3px;
+    font-weight: bold;
 }
 .row-one {
     button {
@@ -170,6 +214,8 @@ button {
     }
 }
 .row-two {
+    position: relative;
+
     input, button {
         float: left;
         margin-right: 5px;
@@ -178,6 +224,13 @@ button {
     input {
         border-radius: 3px;
         border: $main-border;
+        width: 200px;
+    }
+    ul {
+        position: absolute;
+        top: 50%;
+        right: 12%;
+        transform: translateY(-50%);
     }
     .new-repo {
         float: right;
@@ -190,6 +243,40 @@ button {
         color: white;
         border-color: darken($alt-button-color, 8%)
     }
+}
+.repo {
+    border-bottom: $main-border;
+    padding: 30px 0;
+    position: relative;
+    a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    h3 {
+        font-size: 1.3em;
+        color: $alt-color;
+        margin-bottom: 10px;
+    }
+    p, li {
+        font-size: 0.8em;
+        color: darken($grey-color, 50%);
+    }
+    .stats {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        li {
+            float: left;
+            margin-left: 10px;
+        }
+    }
+}
+.repo:last-of-type {
+    border-bottom: none;
 }
 
 // styling sidebar
@@ -227,6 +314,7 @@ button {
     }
     .stats {
         overflow: auto;
+        position: relative;
         a {
             float: left;
             margin: 0 10px;
@@ -244,6 +332,7 @@ button {
         }
     }
     .orgs {
+        border-bottom: none;
         p {
             font-weight: bold;
             color: black;

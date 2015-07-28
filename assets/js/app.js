@@ -33,7 +33,6 @@ loadRepos('cbotwell', function(data) {
 
 loadUser('cbotwell', function(data) {
   var result = sT(data);
-  debugger;
   sidebarEl.html(result);
 
 });
