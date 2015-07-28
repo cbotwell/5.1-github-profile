@@ -135,7 +135,8 @@ footer {
 // styling main-body
 
 .sidebar, .content {
-    margin: 20px 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 // styling content
@@ -151,7 +152,7 @@ footer {
         float: left
     }
     li {
-        margin: 0 5px;
+        margin: 0 10px;
     }
     a {
         text-decoration: none;
@@ -192,3 +193,65 @@ button {
 }
 
 // styling sidebar
+
+.sidebar {
+    color: darken($grey-color, 50%);
+    img {
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    div {
+        border-bottom: $main-border;
+        padding: 15px 0;
+    }
+    div:first-of-type {
+        padding-top: 0;
+    }
+    h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: black;
+    }
+    a {
+        text-decoration: none;
+        color: $alt-color;
+    }
+    li span {
+        color: black;
+    }
+    li {
+        font-size: 0.8em;
+        margin: 10px 0;
+    }
+    .stats {
+        overflow: auto;
+        a {
+            float: left;
+            margin: 0 10px;
+        }
+        span {
+            display: block;
+            text-align: center;
+            font-size: 1.7em;
+            font-weight: bold;
+        }
+        span:last-of-type {
+            color: darken($grey-color, 50%);
+            font-size: 0.7em;
+            font-weight: normal;
+        }
+    }
+    .orgs {
+        p {
+            font-weight: bold;
+            color: black;
+            margin-bottom: 10px;
+        }
+        img {
+            width: 42px;
+            border-radius: 0;
+        }
+    }
+}

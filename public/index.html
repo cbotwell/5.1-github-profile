@@ -95,27 +95,30 @@
 
 <template id="sidebar">
     <div>
-        <img src="{{ imgUrl }}" alt="@{{ username }}">
+        <img src="{{ avatar_url }}" alt="@{{ login }}">
         <h2>{{ name }}</h2>
-        <h3>{{ username }}</h3>
+        <h3>{{ login }}</h3>
     </div>
     <div>
-        <p><i class="fa fa-map-marker"></i> {{ location }}</p>
-        <p><i class="fa fa-link"></i><a href="#">{{ blog }}</a></p>
-        <p><i class="fa fa-clock-o"></i> Joined on {{ joinDate }}</p>
+        <ul>
+            <li><i class="fa fa-map-marker"></i><span> {{ location }}</span></li>
+            <li><i class="fa fa-link"></i><a href="#"> {{ blog }}</a></li>
+            <li><i class="fa fa-clock-o"></i><span> Joined on {{ created_at }}</span></li>
+        </ul>
     </div>
-    <div>
-            <a href="{{ folowers }}"><span>{{ numberFollower }}</span><span>Followers</span></a>
-            <a href="{{ folowers }}"><span>{{ numberStarred }}</span><span>Starred</span></a>
-            <a href="{{ folowers }}"><span>{{ numberFollowing }}</span><span>Following</span></a>
+    <div class="stats">
+            <a href="{{ followers_url }}"><span>{{ followers }}</span><span>Followers</span></a>
+            <a href="{{ starred_url }}"><span>0</span><span>Starred</span></a>
+            <a href="{{ following_url }}"><span>{{ following }}</span><span>Following</span></a>
     </div>
-    <div>
+    <div class="orgs">
         <p>Organizations</p>
-        <img src="{{ organizationImgUrl }}" alt="{{ orgName }}">
+        <a href="https://github.com/TIY-LR-FEE-2015-June"><img src="https://avatars0.githubusercontent.com/u/12973026?v=3&amp;s=84" alt="@TIY-LR-FEE-2015-June"></a>
     </div>
 </template>
 
 <template id="repo">
+    {{#each this as |repo|}}
     <div class="repo">
         <a href="{{ repoUrl }}"><h3>{{ RepoName }}</h3></a>
         <p>{{ UpdatedTime }}</p>
@@ -125,6 +128,7 @@
             <p><i class="fa fa-code-fork"></i> {{ Forks }}</p>
         </div>
     </div>
+    {{/each}}
 </template>
 
 <script src="jquery/dist/jquery.min.js"></script>
