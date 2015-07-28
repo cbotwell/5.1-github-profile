@@ -1,0 +1,346 @@
+// imported and box sizing
+
+@import 'reset';
+$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts";
+
+@import 'font-awesome';
+@import 'bourbon';
+@import 'neat';
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// variables
+
+$grey-color: #F2F2F2;
+$font-defaults: Helvetica, Arial, sans-serif;
+$alt-color: #4078c0;
+$alt-button-color: #60b044;
+$main-border: 1px solid darken($grey-color, 8%);
+
+// starting styles
+body {
+    font-family: $font-defaults;
+}
+.wrapper {
+    @include outer-container(980px);
+}
+
+.sidebar {
+    @include span-columns(3);
+}
+
+.content {
+    @include span-columns(9);
+    @include omega();
+}
+footer {
+    @include span-columns(12);
+}
+
+// styling nav
+
+nav {
+    @include span-columns(12);
+    background: $grey-color;
+    padding: 10px 0;
+    border-bottom: $main-border;
+    font-size: 1em;
+    overflow: auto;
+    .wrapper {
+        position: relative;
+    }
+    .main {
+        float: left;
+
+        .fa-github, input, li, a {
+            float: left;
+        }
+        a {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .fa-github, input {
+            margin-right: 15px;
+        }
+        .fa-github {
+            font-size: 2em;
+        }
+        input {
+            border: $main-border;
+            border-radius: 3px;
+            padding: 8px;
+            width: 300px;
+        }
+   }
+   .links {
+       position: absolute;
+       top: 50%;
+       left: 35%;
+       transform: translateY(-50%);
+       li {
+        float: left;
+        font-weight: bold;
+        font-size: 0.8em;
+       }
+   }
+   .account {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        li {
+            float: left;
+        }
+        img {
+            height: 20px;
+            border-radius: 3px;
+        }
+        .fa-plus:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 4px 0 4px;
+            border-color: black transparent transparent transparent;
+            position: absolute;
+            top: 50%;
+            right: -10px;
+        }
+        a:last-of-type:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 4px 0 4px;
+            border-color: black transparent transparent transparent;
+            position: absolute;
+            top: 40%;
+            right: 5px;
+        }
+   }
+   a {
+    text-decoration: none;
+    color: black;
+   }
+   a:hover {
+    color: $alt-color;
+   }
+   li {
+    margin: 0 15px;
+   }
+}
+
+// styling footer
+
+footer {
+    color: darken($grey-color, 10%);
+    font-size: 2em;
+    text-align: center;
+    overflow: auto;
+
+
+    .wrapper {
+        border-top: $main-border;
+        padding: 30px 0;
+        position: relative;
+    }
+    ul:first-of-type {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+    ul:last-of-type {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+    li {
+        float: left;
+    }
+    a {
+        text-decoration: none;
+        color: $alt-color;
+    }
+    li {
+        font-size: 0.4em;
+        margin: 0 5px;
+    }
+}
+
+// styling main-body
+
+.sidebar, .content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+// styling content
+
+.top, .row-one, .row-two, .repos {
+    @include span-columns(12);
+}
+.row-one, .row-two {
+    border-bottom: 1px solid darken($grey-color, 8%);
+    font-size: 0.9em;
+    padding: 10px 0;
+    ul, li {
+        float: left
+    }
+    li {
+        margin: 0 10px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+button {
+    background: $grey-color;
+    padding: 5px;
+    border: $main-border;
+    border-radius: 3px;
+    font-weight: bold;
+}
+.row-one {
+    button {
+        float: right;
+    }
+}
+.row-two {
+    position: relative;
+
+    input, button {
+        float: left;
+        margin-right: 5px;
+        padding: 10px;
+    }
+    input {
+        border-radius: 3px;
+        border: $main-border;
+        width: 200px;
+    }
+    ul {
+        position: absolute;
+        top: 50%;
+        right: 12%;
+        transform: translateY(-50%);
+    }
+    .new-repo {
+        float: right;
+    }
+    a {
+        color: $alt-color;
+    }
+    .new-repo {
+        background: $alt-button-color;
+        color: white;
+        border-color: darken($alt-button-color, 8%)
+    }
+}
+.repo {
+    border-bottom: $main-border;
+    padding: 30px 0;
+    position: relative;
+    a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    h3 {
+        font-size: 1.3em;
+        color: $alt-color;
+        margin-bottom: 10px;
+    }
+    p, li {
+        font-size: 0.8em;
+        color: darken($grey-color, 50%);
+    }
+    .stats {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        li {
+            float: left;
+            margin-left: 10px;
+        }
+    }
+}
+.repo:last-of-type {
+    border-bottom: none;
+}
+
+// styling sidebar
+
+.sidebar {
+    color: darken($grey-color, 50%);
+    img {
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    div {
+        border-bottom: $main-border;
+        padding: 15px 0;
+    }
+    div:first-of-type {
+        padding-top: 0;
+    }
+    h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: black;
+    }
+    a {
+        text-decoration: none;
+        color: $alt-color;
+    }
+    li span {
+        color: black;
+    }
+    li {
+        font-size: 0.8em;
+        margin: 10px 0;
+    }
+    .stats {
+        overflow: auto;
+        position: relative;
+        a {
+            float: left;
+            margin: 0 10px;
+        }
+        span {
+            display: block;
+            text-align: center;
+            font-size: 1.7em;
+            font-weight: bold;
+        }
+        span:last-of-type {
+            color: darken($grey-color, 50%);
+            font-size: 0.7em;
+            font-weight: normal;
+        }
+    }
+    .orgs {
+        border-bottom: none;
+        p {
+            font-weight: bold;
+            color: black;
+            margin-bottom: 10px;
+        }
+        img {
+            width: 42px;
+            border-radius: 0;
+        }
+    }
+}

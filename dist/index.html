@@ -125,7 +125,7 @@
         <div class="stats">
             <ul>
                 <li>{{ repo.language }}</li>
-                <li><i class="fa fa-star"></i> {{ repo.stargazers_count }}</li>
+                <li><i class="fa fa-star"></i>{{ repo.stargazers_count }}</li>
                 <li><i class="fa fa-code-fork"></i> {{ repo.forks_count }}</li>
             </ul>
         </div>
@@ -136,5 +136,10 @@
 <script src="jquery/dist/jquery.min.js"></script>
 <script src="handlebars/handlebars.js"></script>
 <script src="app.js"></script>
+<!-- livereload snippet -->
+<script>document.write('<script src="http://'
+ + (location.host || 'localhost').split(':')[0]
+ + ':35729/livereload.js?snipver=1"><\/script>')
+</script>
 </body>
 </html>
